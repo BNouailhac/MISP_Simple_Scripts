@@ -38,10 +38,10 @@ def extract_analysis_level(analysisId):
         case _:
             return 'Unknow'
 
-# Renvoie les attributs trier par type sous forme de csv
+# Returns attributes sorted by type in csv format
 events = misp.search(controller='events', includeDecayScore='1', return_format='json')
 
-# Les types de IOC de misp qui ne nous intéresse pas à récupérer
+# Define here the types of misp IOC that you are not interested in recovering
 unwanted_types = [
                     "AS",
                     "comment",

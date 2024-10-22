@@ -1,53 +1,6 @@
-```
-                                                   .:-=+*####################*+=-:.                             
-                                              :=+#####*+=-::..        ..::-=+*#####+-:                         
-                                          .-+####+=:.                          .:=+####+-.                     
-                                       .=*###+-.    ...:-==++++++==:.               .-+###*=.                  
-                                     -*###=:      .+########=+#######*=.    .-=:.       :+###*-                
-                                  .=###+:         :::------+#########*+*+.    .###+-.      -*###=              
-                                 =###=.       .-*-. .-====*##*-:+#####+ .=-    =#####*=.     :+###=            
-                               -###-                 .::...      .+####+       .########*-     :+###-          
-                             .*##=          .-===--:.              +####-       ###########-     :*##*.        
-                            -##*.      :=+**######*+++=:           .####*       *###########*-     =###-       
-                           +##-     :=###*+########+:  ..           *####:      ##############+.    :###=      
-                          +##:    *####*+-###==+#####*:             *####:     :################:    .*##+     
-                         +#*.    :-:-:..:+#+:    :+####=           -#####.     +#################:    .*##+    
-                        +#*.    .--..-*+-.         +####=         .#####*     -###################:    .*##=   
-                       -##.    .=.      ....       .#####.       :######.    -#####################.    .###-  
-                      .##-         .-+##+-:.        +####+      =######:    =######################*     -###. 
-                      +#+        .+#####**+-.       =####*    :*#####*.   .*########################-     *##= 
-                     .##.       =*###########*:     +####*  :*######-    =##########################*     -### 
-                     -#*      .**=###=---=*####*    +****=.=******+.   .+************################:     ###-
-                     +#-     .###**#*      =####:.-::::::::::::::::::::::::::::::-.  :*##############*     +##+
-                     *#:    .*##- =#.       *###:::   .*:        =+        :*:   -:   :###############.    =##*
-                     ##.    **-::=+         +###:::  :###=      +##*.     -###-  -:    *####*::=######:    -###
-                     ##.    :.-.-=          +###::: =#####+   .*#####:   =#####= -:    +####.   .#####-    -###
-                     *#:     +              *###::-+#######*.:########-.+#######*=:    +###-     :####=    =##*
-                     +#-    :-              ####::=#########-+########*-#########+:    *##*       *###-    +##+
-                     -#+                   :####:::.*######:  =######=  .*#####*.-:   .###.       =###.    ###-
-                     .##.                  +####:::  +###*.    :####-     +###*. -:   =#*.        =##+    :### 
-                      +#=                 -#####:::   =#+       .*#:       =#=   -:  .#+          =##.    *##= 
-                      .##.               .######::-    =         ::         =    -: :=.           *#:    =##*  
-                       =#*               :######= +   +#*.      :##-       +#+   =               .#-    -##*.  
-                        +#=               #######.-:.*###*.    -####=    .*###*.--              .=:    =##*.   
-                         *#=              -######*.-#######-  +######+  :#######-                    -*##+     
-                         .*#=              -#######::#######=*########*-######*::-:.             .-+###*:      
-                          .*#=              .*######=.=####+ :########: +####=.=#####*++======+*#####*-        
-                            +#+.              :+######-.=#=   .*####*.   =#=.-#####################+:          
-                             -##:                :+#####=.:-:   +##+   :-:.=###################*=:             
-                              .*#+.                 .:=+*#+-.:--:=+:--::-*#################+=:.                
-                                -##-           -=-        .:-:.  ...:=*##########***+=-:.                      
-                                  =#*-       :#####+:.                :######:                                 
-                                    =##=.    :*  +######**++++++++***#########+-.                              
-                                      -*#+:     :#+  .:=*#*--=++++*********+=-          .:                     
-                                        .=*#+:   :-      -#.                         .-+*.                     
-                                           .-+#+-:                                :=*##=                       
-                                               :-+**=-:.                    .:-+*####=.                        
-                                                    :-=+**++=---------==+***+==*##+:                           
-```
-# AMSN: API MISP
+# MISP Simple Scripts
 
-Ce code donne à disposition plusieur script permetant l'exploitation des données d'une instalation local de MISP.
+This code provides several scripts for exploiting data from a local MISP installation.
 
 ## Packages python utilisés :
 
@@ -57,51 +10,51 @@ Ce code donne à disposition plusieur script permetant l'exploitation des donné
 - pandas
 
 ## Usage
-Les variables de connection à l'api MISP local ce trouve dans le fichier 'src/conf/misp_conf.py'.
+The local MISP api connection variables are in the ‘src/conf/misp_conf.py’ file.
 
 ### misp_create_event.py
-Script pour créer un nouvel évènement dans misp
+Script to create a new event in misp
 
 ```
 $ python3 ./src/create_event.py
 ```
 
 ### misp_attribute_csv.py
-Prend tout les évènement de l'instance MISP pour en extraire les IOC et créer un fichier .csv pour chaque type d'IOC (dans le dossier attribute/)
+Takes all the events from the MISP instance to extract the IOCs and create a .csv file for each type of IOC (in the attribute/ folder)
 
 ```
 $ python3 ./src/misp_attribute_csv.py
 ```
 
 ### misp_suricata.py
-Prend tout les évènements de l'instance MISP créer des règles suricata cappable de les détectés (dans le fichier rule/misp.rules)
+Takes all the events from the MISP instance and creates suricata rules to detect them (in the rule/misp.rules file)
 
 ```
 $ python3 ./src/misp_suricata.py
 ```
 
 ### misp_hash_rules.py
-Prend tout les IOC de type hash de fichier compatible avec suricata (md5, sha1 et sha256) de l'instance MISP afin créer des fichiers les rassemblant (dans le dossier hash/) et un fichier de règles suricata détecter des hash de fichier à partir des ces fichiers (dans le fichier rule/hash.rules)
+Takes all suricata-compatible file hash IOCs (md5, sha1 and sha256) from the MISP instance to create files collecting them (in the hash/ folder) and a suricata rules file detecting file hashes from these files (in the rule/hash.rules file)
 
 ```
 $ python3 ./src/misp_hash_rules.py
 ```
 
 ### misp_warninglist_csv.py
-Prend tout les warninglist de l'instance MISP pour en extraire les IOC et créer un fichier .csv pour chaque type (dans le dossier warninglist/)
+Takes all the warninglists in the MISP instance, extracts the IOCs and creates a .csv file for each type (in the warninglist/ folder)
 
 ```
 $ python3 ./src/misp_warninglist_csv.py
 ```
 
 ### misp_pull_feeds.py
-A partir d'url de feeds d'IOC en ligne (lists des feeds disponible pour MISP trouvable sur notre instance local à : /feeds/index) et dépose les fichiers trouvé dans le dossier feeds/
+From online IOC feeds url (list of feeds available for MISP found on our local instance at : /feeds/index) and drop the files found in the feeds/ folder.
 
 ```
 $ python3 ./src/misp_pull_feeds.py
 ```
 ### misp_push_event.py
-Prends tous les fichiers dans le dossier feeds et les importe dans l'instance local misp
+Take all the files in the feeds folder and import them into the local misp instance
 
 ```
 $ python3 ./src/misp_push_event.py

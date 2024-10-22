@@ -5,7 +5,7 @@ from conf.misp_conf import misp_url, misp_user_key, misp_verifycert
 
 misp = PyMISP(misp_url, misp_user_key, misp_verifycert)
 
-# Créer un évènement Pouvant être exporter en règles suricata
+# Create an event that can be exported in suricata rules
 def create_event(_distribution, _threat_level, _analysis, _info, _attribute, _tags):
     event = MISPEvent()
 
@@ -51,4 +51,4 @@ def create_event(_distribution, _threat_level, _analysis, _info, _attribute, _ta
     misp.publish(event)
 
 # Exemple Usage :
-event_id = create_event(3, 1, 1, "AMSN Example event with network IOC for Suricata", {"category": 'Network activity', "type": 'domain', "value": 'Vilain.com', "comment": 'AMSN Test domain for Suricata rule generation'}, ["tlp:white", "Phising"])
+event_id = create_event(3, 1, 1, "Example event with network IOC for Suricata", {"category": 'Network activity', "type": 'domain', "value": 'Vilain.com', "comment": 'Test domain for Suricata rule generation'}, ["tlp:white", "Phising"])

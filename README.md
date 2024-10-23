@@ -57,6 +57,3 @@ Take all the files in the feeds folder and import them into the local misp insta
 ```
 $ python3 ./src/misp_push_event.py
 ```
-
-## Contribution
-- Baptiste Nouailhac - 02/10/2024

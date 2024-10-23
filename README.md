@@ -1,7 +1,7 @@
 # MISP Simple Scripts
 This code provides several scripts for exploiting data from a local MISP installation.
 
-## Packages python utilisés :
+## Python packages used :
 - json
 - csv
 - datetime
